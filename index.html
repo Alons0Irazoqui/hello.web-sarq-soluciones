@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARQ Soluciones | Diseño sustentable, construcción y mantenimiento en León</title>
+    <meta
+      name="description"
+      content="SARQ Soluciones en León: diseño sustentable, construcción y mantenimiento de inmuebles. Soluciones reales a sueños fantásticos."
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260728" />
+  </head>
+  <body>
+    <div class="preloader" id="preloader" aria-live="polite">
+      <div class="preloader__panel">
+        <img src="assets/sarq-logo.png" alt="SARQ Soluciones" />
+        <div class="preloader__spinner" aria-hidden="true"></div>
+        <p>Cargando...</p>
+      </div>
+    </div>
+
+    <canvas class="particle-layer" id="particleLayer" aria-hidden="true"></canvas>
+
+    <header class="site-header" id="inicio">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="SARQ Soluciones inicio">
+          <img src="assets/sarq-logo.png" alt="SARQ Soluciones" />
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="#porque">Por qué elegirnos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#galeria">Galería</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <a
+          class="btn btn--whatsapp"
+          href="https://wa.me/?text=Hola%20SARQ%20Soluciones%2C%20quiero%20informaci%C3%B3n%20para%20un%20proyecto."
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-bg" data-parallax>
+        <div class="hero__media" aria-hidden="true"></div>
+        <div class="hero__veil"></div>
+        <div class="container hero__content">
+          <p class="eyebrow reveal">Diseño sustentable, construcción y mantenimiento de inmuebles</p>
+          <h1 class="reveal">
+            SARQ crea
+            <span class="hero-word" id="typewriter">espacios precisos</span>
+          </h1>
+          <p class="hero__copy reveal">
+            Soluciones reales a sueños fantásticos: una visión técnica para proyectar, construir
+            y cuidar inmuebles con estética, estructura y funcionalidad.
+          </p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#contacto">Solicitar cotización</a>
+            <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+          </div>
+          <div class="trust-row reveal" aria-label="Datos de confianza">
+            <span>León, Guanajuato</span>
+            <span>630 me gusta en Facebook</span>
+            <span>3 visitas registradas</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="porque">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Por qué elegirnos</p>
+            <h2>Solidez técnica con una ejecución clara.</h2>
+            <p>
+              SARQ Soluciones concentra su propuesta en tres líneas publicadas: diseño
+              sustentable, construcción y mantenimiento de inmuebles.
+            </p>
+          </div>
+          <div class="reason-grid">
+            <article class="reason-card reveal">
+              <span>01</span>
+              <h3>Diseño con intención</h3>
+              <p>Cada decisión visual y constructiva se alinea con la función real del inmueble.</p>
+            </article>
+            <article class="reason-card reveal">
+              <span>02</span>
+              <h3>Visión sustentable</h3>
+              <p>El diseño sustentable se integra desde la idea, no como un agregado final.</p>
+            </article>
+            <article class="reason-card reveal">
+              <span>03</span>
+              <h3>Construcción responsable</h3>
+              <p>Procesos orientados a convertir planos y conceptos en espacios habitables.</p>
+            </article>
+            <article class="reason-card reveal">
+              <span>04</span>
+              <h3>Mantenimiento continuo</h3>
+              <p>Atención a inmuebles para conservar su valor, seguridad y operación cotidiana.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section section-bg section-bg--studio" data-parallax>
+        <div class="container split-grid">
+          <div class="split-panel reveal">
+            <p class="eyebrow">Enfoque SARQ</p>
+            <h2>Arquitectura que se entiende, se construye y se mantiene.</h2>
+            <p>
+              La marca comunica precisión industrial, materiales honestos y soluciones para
+              inmuebles. La página replica esa identidad: blanco, azul acero, concreto y madera.
+            </p>
+          </div>
+          <div class="metric-card reveal">
+            <strong>Soluciones reales</strong>
+            <span>a sueños fantásticos</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicios">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Servicios</p>
+            <h2>Tres áreas para llevar tu inmueble de la idea al cuidado diario.</h2>
+          </div>
+          <div class="service-grid">
+            <article class="service-card reveal">
+              <img src="assets/planos-arquitectonicos.webp" alt="Planos y maqueta de diseño arquitectónico sustentable" />
+              <div>
+                <h3>Diseño sustentable</h3>
+                <p>Conceptualización y definición espacial con enfoque sustentable y técnico.</p>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <img src="assets/residencia-minimalista.webp" alt="Residencia moderna para servicio de construcción" />
+              <div>
+                <h3>Construcción</h3>
+                <p>Ejecución de inmuebles con orden, lectura arquitectónica y calidad visual.</p>
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <img src="assets/interior-concreto.webp" alt="Interior con instalaciones visibles para mantenimiento de inmuebles" />
+              <div>
+                <h3>Mantenimiento de inmuebles</h3>
+                <p>Soluciones para conservar, corregir y mejorar espacios ya construidos.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process" id="proceso">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Cómo funciona</p>
+            <h2>Un proceso simple para avanzar con claridad.</h2>
+          </div>
+          <div class="process-grid">
+            <article class="process-step reveal">
+              <span>Paso 01</span>
+              <h3>Comparte tu idea</h3>
+              <p>Envía el tipo de inmueble, alcance deseado y el punto en el que se encuentra tu proyecto.</p>
+            </article>
+            <article class="process-step reveal">
+              <span>Paso 02</span>
+              <h3>Definición técnica</h3>
+              <p>SARQ Soluciones revisa necesidades de diseño, construcción o mantenimiento.</p>
+            </article>
+            <article class="process-step reveal">
+              <span>Paso 03</span>
+              <h3>Propuesta de solución</h3>
+              <p>Recibes una ruta clara para convertir el sueño en una solución viable.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats section-bg section-bg--patio" data-parallax>
+        <div class="container stats-grid reveal">
+          <div>
+            <strong data-count="630">0</strong>
+            <span>me gusta en Facebook</span>
+          </div>
+          <div>
+            <strong data-count="3">0</strong>
+            <span>visitas registradas</span>
+          </div>
+          <div>
+            <strong data-count="3">0</strong>
+            <span>servicios publicados</span>
+          </div>
+          <div>
+            <strong data-count="1">0</strong>
+            <span>enfoque sustentable</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="galeria">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Galería</p>
+            <h2>Lenguaje visual: concreto, madera, luz y estructura.</h2>
+            <p>
+              Imágenes proporcionadas en el proyecto para representar el universo arquitectónico
+              de SARQ Soluciones.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <figure class="gallery-item reveal">
+              <img src="assets/residencia-minimalista.webp" alt="Fachada residencial minimalista con terraza cubierta" />
+              <figcaption>Volúmenes limpios para vivienda contemporánea.</figcaption>
+            </figure>
+            <figure class="gallery-item reveal">
+              <img src="assets/terraza-iluminada.webp" alt="Terraza exterior con iluminación ambiental" />
+              <figcaption>Ambientes exteriores con iluminación funcional.</figcaption>
+            </figure>
+            <figure class="gallery-item reveal">
+              <img src="assets/patio-arquitectonico.webp" alt="Patio arquitectónico con estructura metálica y concreto" />
+              <figcaption>Materialidad aparente y circulación bien definida.</figcaption>
+            </figure>
+            <figure class="gallery-item reveal">
+              <img src="assets/interior-concreto.webp" alt="Interior de concreto aparente con instalaciones para mantenimiento" />
+              <figcaption>Espacios técnicos pensados para operación y mantenimiento.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Validación social</p>
+            <h2>Reseñas pendientes de confirmar.</h2>
+            <p>
+              No se encontraron reseñas completas verificables en la información disponible. Esta
+              sección queda lista para incorporar opiniones reales del cliente antes de publicar.
+            </p>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card reveal">
+              <div class="stars" aria-label="Reseña pendiente">Pendiente</div>
+              <p>Comentario real del cliente pendiente de confirmar.</p>
+              <div class="avatar-row">
+                <span>R</span>
+                <strong>Reseña verificada</strong>
+              </div>
+            </article>
+            <article class="testimonial-card reveal">
+              <div class="stars" aria-label="Reseña pendiente">Pendiente</div>
+              <p>Comentario real del cliente pendiente de confirmar.</p>
+              <div class="avatar-row">
+                <span>C</span>
+                <strong>Cliente confirmado</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contacto">
+        <div class="container contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow">Contacto</p>
+            <h2>Cuéntanos qué inmueble quieres diseñar, construir o mantener.</h2>
+            <div class="contact-list">
+              <p><strong>Negocio:</strong> SARQ Soluciones</p>
+              <p><strong>Zona publicada:</strong> León, Guanajuato</p>
+              <p><strong>WhatsApp:</strong> pendiente de confirmar</p>
+              <p><strong>Correo:</strong> pendiente de confirmar</p>
+              <p><strong>Horario:</strong> pendiente de confirmar</p>
+            </div>
+            <iframe
+              title="Mapa de León, Guanajuato"
+              src="https://www.google.com/maps?q=Le%C3%B3n%2C%20Guanajuato%2C%20M%C3%A9xico&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <form class="contact-form reveal" id="contactForm">
+            <label>
+              Nombre
+              <input type="text" name="nombre" autocomplete="name" required />
+            </label>
+            <label>
+              Servicio de interés
+              <select name="servicio" required>
+                <option value="">Selecciona una opción</option>
+                <option>Diseño sustentable</option>
+                <option>Construcción</option>
+                <option>Mantenimiento de inmuebles</option>
+              </select>
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" rows="5" required placeholder="Describe brevemente tu proyecto"></textarea>
+            </label>
+            <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <img src="assets/sarq-logo.png" alt="SARQ Soluciones" />
+          <p>Soluciones reales a sueños fantásticos.</p>
+        </div>
+        <div>
+          <h3>Navegación</h3>
+          <a href="#porque">Por qué elegirnos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#galeria">Galería</a>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <a href="#servicios">Diseño sustentable</a>
+          <a href="#servicios">Construcción</a>
+          <a href="#servicios">Mantenimiento</a>
+        </div>
+        <div>
+          <h3>Redes</h3>
+          <a href="https://www.facebook.com/sarqsoluciones" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://wa.me/?text=Hola%20SARQ%20Soluciones%2C%20quiero%20informaci%C3%B3n%20para%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 SARQ Soluciones. Todos los derechos reservados.</div>
+    </footer>
+
+    <script src="app.js?v=20260728"></script>
+  </body>
+</html>
