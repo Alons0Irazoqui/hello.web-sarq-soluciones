@@ -3,7 +3,6 @@ const preloader = document.getElementById("preloader");
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.getElementById("navLinks");
-const typewriter = document.getElementById("typewriter");
 const contactForm = document.getElementById("contactForm");
 const canvas = document.getElementById("particleLayer");
 const ctx = canvas.getContext("2d");
@@ -35,40 +34,6 @@ navLinks.querySelectorAll("a").forEach((link) => {
     navToggle.setAttribute("aria-expanded", "false");
   });
 });
-
-const phrases = ["espacios", "proyectos", "educación", "operación", "soluciones"];
-let phraseIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-const runTypewriter = () => {
-  const phrase = phrases[phraseIndex];
-  typewriter.textContent = phrase.slice(0, charIndex);
-
-  if (!deleting && charIndex < phrase.length) {
-    charIndex += 1;
-    window.setTimeout(runTypewriter, 72);
-    return;
-  }
-
-  if (!deleting && charIndex === phrase.length) {
-    deleting = true;
-    window.setTimeout(runTypewriter, 1350);
-    return;
-  }
-
-  if (deleting && charIndex > 0) {
-    charIndex -= 1;
-    window.setTimeout(runTypewriter, 34);
-    return;
-  }
-
-  deleting = false;
-  phraseIndex = (phraseIndex + 1) % phrases.length;
-  window.setTimeout(runTypewriter, 250);
-};
-
-runTypewriter();
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
