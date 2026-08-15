@@ -383,7 +383,6 @@ textarea {
 .reason-grid,
 .service-grid,
 .process-grid,
-.testimonial-grid,
 .gallery-grid,
 .stats-grid,
 .footer-grid {
@@ -418,8 +417,7 @@ textarea {
 
 .reason-card h3,
 .service-card h3,
-.process-step h3,
-.testimonial-card strong {
+.process-step h3 {
   position: relative;
   margin: 0;
   color: var(--steel-deep);
@@ -434,7 +432,6 @@ textarea {
 .reason-card p,
 .service-card p,
 .process-step p,
-.testimonial-card p,
 .gallery-item figcaption {
   margin: 12px 0 0;
   color: rgba(28, 32, 33, 0.67);
@@ -487,7 +484,7 @@ textarea {
 }
 
 .service-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
 .service-card {
@@ -511,6 +508,24 @@ textarea {
 
 .service-card div {
   padding: 24px;
+}
+
+.service-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(28, 32, 33, 0.67);
+  font-weight: 500;
+}
+
+.service-list li {
+  margin-top: 6px;
+}
+
+.service-list li::before {
+  content: "• ";
+  color: var(--wood);
+  font-weight: 900;
 }
 
 .process {
@@ -594,44 +609,6 @@ textarea {
 .gallery-item figcaption {
   padding: 18px;
   min-height: 90px;
-}
-
-.testimonials {
-  background: var(--white);
-}
-
-.testimonial-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.testimonial-card {
-  padding: 28px;
-  border: 1px solid rgba(104, 133, 142, 0.18);
-  border-radius: var(--radius);
-  background: var(--paper);
-}
-
-.stars {
-  color: var(--wood);
-  font-weight: 900;
-}
-
-.avatar-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.avatar-row span {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: var(--white);
-  background: var(--steel);
-  font-weight: 900;
 }
 
 .contact {
@@ -910,8 +887,7 @@ iframe {
   .stats-grid,
   .footer-grid,
   .split-grid,
-  .contact-grid,
-  .testimonial-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 

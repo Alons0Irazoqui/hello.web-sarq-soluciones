@@ -36,7 +36,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
   });
 });
 
-const phrases = ["soluciones", "espacios", "proyectos"];
+const phrases = ["espacios", "proyectos", "educación", "operación", "soluciones"];
 let phraseIndex = 0;
 let charIndex = 0;
 let deleting = false;
