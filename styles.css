@@ -5,11 +5,16 @@
   --steel-soft: #e9ecec;
   --wood: #826547;
   --wood-dark: #5d4831;
+  --gold: #b99a68;
+  --champagne: #efe1c7;
   --concrete: #9f9b8f;
-  --paper: #f5f5f4;
+  --paper: #f6f6f3;
   --ink: #1c2021;
   --white: #ffffff;
+  --line: rgba(51, 66, 71, 0.14);
   --shadow: 0 24px 70px rgba(30, 39, 41, 0.16);
+  --shadow-soft: 0 18px 60px rgba(30, 39, 41, 0.09);
+  --shadow-premium: 0 28px 90px rgba(30, 39, 41, 0.18);
   --radius: 8px;
 }
 
@@ -19,13 +24,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 130px;
 }
 
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), transparent 420px),
+    linear-gradient(135deg, var(--paper), #ecefed);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -61,7 +69,7 @@ textarea {
   inset: 0;
   z-index: 4;
   pointer-events: none;
-  opacity: 0.22;
+  opacity: 0.16;
 }
 
 .preloader {
@@ -85,12 +93,18 @@ textarea {
   display: grid;
   justify-items: center;
   gap: 18px;
+  padding: 34px 42px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: var(--shadow-premium);
+  backdrop-filter: blur(22px);
   animation: loaderReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .preloader img {
   width: clamp(230px, 34vw, 420px);
-  filter: drop-shadow(0 28px 35px rgba(30, 39, 41, 0.18));
+  filter: drop-shadow(0 22px 26px rgba(30, 39, 41, 0.18));
 }
 
 .preloader__spinner {
@@ -121,9 +135,7 @@ textarea {
 
 .site-header.is-scrolled {
   padding: 8px 0;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 12px 38px rgba(30, 39, 41, 0.08);
-  backdrop-filter: blur(18px);
+  background: transparent;
 }
 
 .nav {
@@ -133,11 +145,58 @@ textarea {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 24px;
+  min-height: 84px;
+  padding: 7px 10px 7px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 55px rgba(30, 39, 41, 0.1);
+  backdrop-filter: blur(22px);
+}
+
+.site-header.is-scrolled .nav {
+  min-height: 72px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 45px rgba(30, 39, 41, 0.11);
+}
+
+.brand {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(142px, 13vw, 184px);
+  min-height: 68px;
+  padding: 7px 10px;
+  overflow: hidden;
+  border: 1px solid rgba(185, 154, 104, 0.24);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(246, 246, 243, 0.62)),
+    linear-gradient(90deg, rgba(185, 154, 104, 0.14), transparent);
+  box-shadow: 0 14px 34px rgba(30, 39, 41, 0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.brand::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.55;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 42px rgba(30, 39, 41, 0.12);
 }
 
 .brand img {
-  width: clamp(150px, 15vw, 210px);
+  width: 100%;
   height: auto;
+  filter: drop-shadow(0 10px 18px rgba(30, 39, 41, 0.14));
 }
 
 .nav-links {
@@ -162,7 +221,7 @@ textarea {
   bottom: 2px;
   width: 100%;
   height: 2px;
-  background: var(--wood);
+  background: linear-gradient(90deg, var(--wood), var(--gold));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.28s ease;
@@ -203,19 +262,38 @@ textarea {
   cursor: pointer;
   font-weight: 900;
   letter-spacing: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
   white-space: nowrap;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.26) 48%, transparent 74%);
+  opacity: 0;
+  transform: translateX(-70%);
+  transition: opacity 0.28s ease, transform 0.55s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
 }
 
+.btn:hover::after {
+  opacity: 1;
+  transform: translateX(70%);
+}
+
 .btn--primary,
 .btn--whatsapp {
   color: var(--white);
-  background: linear-gradient(135deg, var(--steel), var(--steel-dark));
-  box-shadow: 0 16px 38px rgba(104, 133, 142, 0.35);
+  background: linear-gradient(135deg, var(--steel-deep), var(--steel), var(--wood-dark));
+  box-shadow: 0 16px 38px rgba(51, 66, 71, 0.32);
 }
 
 .btn--primary:hover,
@@ -234,7 +312,9 @@ textarea {
   position: relative;
   z-index: 2;
   padding: clamp(76px, 9vw, 130px) 0;
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0)),
+    var(--paper);
 }
 
 .section-bg {
@@ -244,6 +324,10 @@ textarea {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+
+section[id] {
+  scroll-margin-top: 130px;
 }
 
 .hero {
@@ -264,7 +348,7 @@ textarea {
 
 .hero__media {
   background:
-    linear-gradient(90deg, rgba(30, 39, 41, 0.82), rgba(30, 39, 41, 0.44), rgba(30, 39, 41, 0.18)),
+    linear-gradient(90deg, rgba(20, 25, 26, 0.9), rgba(30, 39, 41, 0.58), rgba(30, 39, 41, 0.18)),
     url("assets/residencia-minimalista.webp") center / cover;
   transform: translate3d(0, var(--parallax, 0px), 0) scale(1.06);
   opacity: 0.92;
@@ -272,8 +356,9 @@ textarea {
 
 .hero__veil {
   background:
-    linear-gradient(180deg, rgba(30, 39, 41, 0.08), rgba(30, 39, 41, 0.84)),
-    radial-gradient(circle at 28% 45%, rgba(104, 133, 142, 0.38), transparent 34%);
+    linear-gradient(180deg, rgba(30, 39, 41, 0.04), rgba(30, 39, 41, 0.86)),
+    radial-gradient(circle at 28% 45%, rgba(185, 154, 104, 0.24), transparent 30%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 34%);
 }
 
 .hero__content {
@@ -309,12 +394,13 @@ textarea {
 .hero h1 {
   max-width: 850px;
   font-size: clamp(3.2rem, 8vw, 7.7rem);
+  text-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
 }
 
 .hero-word {
   display: inline-block;
   min-height: 1.04em;
-  color: #d7c2a5;
+  color: var(--champagne);
   text-shadow: 0 0 26px rgba(215, 194, 165, 0.34);
 }
 
@@ -369,7 +455,7 @@ textarea {
 .split-panel h2,
 .contact-copy h2 {
   color: var(--steel-deep);
-  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  font-size: clamp(2.2rem, 4.4vw, 4.2rem);
 }
 
 .section-heading p:not(.eyebrow),
@@ -399,17 +485,41 @@ textarea {
   min-height: 310px;
   padding: 30px 24px;
   overflow: hidden;
-  border: 1px solid rgba(51, 66, 71, 0.11);
+  border: 1px solid rgba(51, 66, 71, 0.1);
   border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: 0 14px 44px rgba(30, 39, 41, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 250, 248, 0.9)),
+    var(--white);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-card::before,
+.service-card::before,
+.process-step::before,
+.testimonial-card::before,
+.contact-form::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), rgba(104, 133, 142, 0.52), transparent);
+  opacity: 0.8;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(185, 154, 104, 0.28);
+  box-shadow: var(--shadow);
 }
 
 .reason-card span {
   position: absolute;
   top: -12px;
   right: 16px;
-  color: rgba(104, 133, 142, 0.16);
+  color: rgba(104, 133, 142, 0.13);
   font-size: 5.4rem;
   font-weight: 900;
   line-height: 1;
@@ -441,7 +551,7 @@ textarea {
 .split-section {
   color: var(--white);
   background-image:
-    linear-gradient(90deg, rgba(30, 39, 41, 0.84), rgba(30, 39, 41, 0.4)),
+    linear-gradient(90deg, rgba(20, 25, 26, 0.9), rgba(30, 39, 41, 0.52)),
     url("assets/planos-arquitectonicos.webp");
 }
 
@@ -459,12 +569,24 @@ textarea {
 }
 
 .metric-card {
+  position: relative;
+  overflow: hidden;
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.11);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.07)),
+    rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 2px solid rgba(185, 154, 104, 0.82);
+  pointer-events: none;
 }
 
 .metric-card strong {
@@ -484,19 +606,22 @@ textarea {
 }
 
 .service-grid {
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .service-card {
+  position: relative;
   overflow: hidden;
+  border: 1px solid rgba(51, 66, 71, 0.1);
   border-radius: var(--radius);
   background: var(--white);
-  box-shadow: 0 18px 55px rgba(30, 39, 41, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
+  border-color: rgba(185, 154, 104, 0.28);
   box-shadow: var(--shadow);
 }
 
@@ -538,11 +663,14 @@ textarea {
 }
 
 .process-step {
+  position: relative;
+  overflow: hidden;
   padding: 28px;
+  border: 1px solid rgba(51, 66, 71, 0.08);
   border-left: 3px solid var(--steel);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 18px 50px rgba(30, 39, 41, 0.07);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
 }
 
 .process-step span {
@@ -555,7 +683,7 @@ textarea {
 .stats {
   padding: clamp(68px, 8vw, 110px) 0;
   background-image:
-    linear-gradient(90deg, rgba(30, 39, 41, 0.88), rgba(30, 39, 41, 0.62)),
+    linear-gradient(90deg, rgba(20, 25, 26, 0.92), rgba(30, 39, 41, 0.68)),
     url("assets/patio-arquitectonico.webp");
 }
 
@@ -590,9 +718,10 @@ textarea {
 .gallery-item {
   margin: 0;
   overflow: hidden;
+  border: 1px solid rgba(51, 66, 71, 0.1);
   border-radius: var(--radius);
   background: var(--white);
-  box-shadow: 0 16px 45px rgba(30, 39, 41, 0.08);
+  box-shadow: var(--shadow-soft);
 }
 
 .gallery-item img {
@@ -611,9 +740,50 @@ textarea {
   min-height: 90px;
 }
 
+.testimonials {
+  background: var(--white);
+}
+
+.testimonial-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid rgba(104, 133, 142, 0.18);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--white), var(--paper));
+  box-shadow: var(--shadow-soft);
+}
+
+.stars {
+  color: var(--wood);
+  font-weight: 900;
+}
+
+.avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.avatar-row span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--steel);
+  font-weight: 900;
+}
+
 .contact {
   background:
-    linear-gradient(180deg, var(--steel-soft), var(--paper));
+    linear-gradient(180deg, var(--steel-soft), rgba(255, 255, 255, 0.78), var(--paper));
 }
 
 .contact-grid {
@@ -626,9 +796,10 @@ textarea {
 .contact-list {
   margin: 26px 0;
   padding: 22px;
-  border: 1px solid rgba(51, 66, 71, 0.14);
+  border: 1px solid rgba(51, 66, 71, 0.11);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-list p {
@@ -640,16 +811,21 @@ iframe {
   min-height: 330px;
   border: 0;
   border-radius: var(--radius);
-  box-shadow: 0 18px 52px rgba(30, 39, 41, 0.11);
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-form {
+  position: relative;
+  overflow: hidden;
   display: grid;
   gap: 18px;
   padding: 28px;
+  border: 1px solid rgba(51, 66, 71, 0.1);
   border-radius: var(--radius);
-  background: var(--white);
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 250, 248, 0.94)),
+    var(--white);
+  box-shadow: var(--shadow-premium);
 }
 
 .contact-form label {
@@ -667,7 +843,7 @@ iframe {
   border-radius: var(--radius);
   padding: 14px 15px;
   color: var(--ink);
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.82);
   outline: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -683,7 +859,8 @@ iframe {
   position: relative;
   z-index: 2;
   color: rgba(255, 255, 255, 0.78);
-  background: var(--steel-deep);
+  background:
+    linear-gradient(135deg, #151a1b, var(--steel-deep) 56%, #2d2420);
 }
 
 .footer-grid {
@@ -694,7 +871,7 @@ iframe {
 .footer img {
   width: 220px;
   margin-bottom: 18px;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.28));
 }
 
 .footer h3 {
@@ -775,8 +952,10 @@ iframe {
     gap: 0;
     padding: 18px;
     border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.76);
     background: rgba(255, 255, 255, 0.96);
     box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
   }
 
   .nav-links.is-open {
@@ -805,11 +984,21 @@ iframe {
 }
 
 @media (max-width: 720px) {
+  html {
+    scroll-padding-top: 112px;
+  }
+
+  section[id] {
+    scroll-margin-top: 112px;
+  }
+
   .nav {
     width: min(100% - 20px, 1180px);
     grid-template-columns: auto auto auto;
     justify-content: space-between;
+    min-height: 66px;
     gap: 8px;
+    padding: 6px 8px;
   }
 
   .container {
@@ -820,21 +1009,24 @@ iframe {
     padding: 10px 0;
   }
 
-  .brand img {
+  .brand {
     width: 132px;
+    min-height: 54px;
+    padding: 5px 7px;
+  }
+
+  .brand img {
+    width: 100%;
   }
 
   .btn--whatsapp {
-    position: fixed;
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    z-index: 60;
+    position: static;
+    justify-self: end;
     width: auto;
     min-height: 42px;
-    padding: 0 16px;
-    font-size: 0.88rem;
-    box-shadow: 0 18px 38px rgba(30, 39, 41, 0.26);
+    padding: 0 12px;
+    font-size: 0.78rem;
+    box-shadow: 0 12px 28px rgba(30, 39, 41, 0.22);
   }
 
   .hero {
