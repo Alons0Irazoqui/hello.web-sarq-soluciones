@@ -469,7 +469,6 @@ section[id] {
 .reason-grid,
 .service-grid,
 .process-grid,
-.testimonial-grid,
 .gallery-grid,
 .stats-grid,
 .footer-grid {
@@ -528,8 +527,7 @@ section[id] {
 
 .reason-card h3,
 .service-card h3,
-.process-step h3,
-.testimonial-card strong {
+.process-step h3 {
   position: relative;
   margin: 0;
   color: var(--steel-deep);
@@ -544,7 +542,6 @@ section[id] {
 .reason-card p,
 .service-card p,
 .process-step p,
-.testimonial-card p,
 .gallery-item figcaption {
   margin: 12px 0 0;
   color: rgba(28, 32, 33, 0.67);
@@ -636,6 +633,24 @@ section[id] {
 
 .service-card div {
   padding: 24px;
+}
+
+.service-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(28, 32, 33, 0.67);
+  font-weight: 500;
+}
+
+.service-list li {
+  margin-top: 6px;
+}
+
+.service-list li::before {
+  content: "• ";
+  color: var(--wood);
+  font-weight: 900;
 }
 
 .process {
@@ -1064,8 +1079,7 @@ iframe {
   .stats-grid,
   .footer-grid,
   .split-grid,
-  .contact-grid,
-  .testimonial-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
